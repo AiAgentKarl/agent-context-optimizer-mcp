@@ -1,0 +1,34 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "agent-context-optimizer-mcp"
+version = "0.1.0"
+description = "MCP Server that solves context window overload — smart tool pruning, relevance scoring, and budget tracking for AI agents"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [{name = "AiAgentKarl"}]
+keywords = ["mcp", "context", "optimization", "agent", "tool-pruning", "token-budget"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "mcp>=1.0.0",
+    "httpx>=0.27.0",
+    "pydantic>=2.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/AiAgentKarl/agent-context-optimizer-mcp"
+Repository = "https://github.com/AiAgentKarl/agent-context-optimizer-mcp"
+
+[project.scripts]
+context-optimizer-server = "src.server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
